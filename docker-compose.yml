@@ -7,10 +7,10 @@ services:
   #     POSTGRES_PASSWORD: password
   web:
     build: .
-    command: bash -c "ruby app.rb -o"
+    command: bash -c "ruby src/app.rb -o 0.0.0.0"
     volumes:
       - .:/myapp
     ports:
       - "4567:4567"
-    depends_on:
-      - db
+    # depends_on:
+    #   - db
