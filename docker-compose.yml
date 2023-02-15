@@ -1,0 +1,16 @@
+services:
+  # db:
+  #   image: postgres
+  #   volumes:
+  #     - ./tmp/db:/var/lib/postgresql/data
+  #   environment:
+  #     POSTGRES_PASSWORD: password
+  web:
+    build: .
+    command: bash -c "ruby app.rb -o"
+    volumes:
+      - .:/myapp
+    ports:
+      - "4567:4567"
+    depends_on:
+      - db
