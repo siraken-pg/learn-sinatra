@@ -7,7 +7,7 @@ services:
   #     POSTGRES_PASSWORD: password
   web:
     build: .
-    command: bash -c "ruby src/app.rb -o 0.0.0.0"
+    command: bash -c "rerun --background 'ruby src/app.rb -o 0.0.0.0'"
     volumes:
       - .:/myapp
     ports:

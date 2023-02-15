@@ -1,0 +1,30 @@
+#!/bin/bash
+set -Ceux
+
+ARGS=${@:2}
+DC="docker compose"
+
+case $1 in
+"up")
+  ${DC} up
+;;
+"down")
+  ${DC} down
+;;
+"restart")
+  ${DC} down
+  ${DC} up
+;;
+"build")
+  ${DC} build
+;;
+"bash")
+  ${DC} exec web bash
+;;
+"repl")
+  ${DC} exec web bash -c "irb"
+;;
+*)
+  echo Unexpected command: $1
+;;
+esac
